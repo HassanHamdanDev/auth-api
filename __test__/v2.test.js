@@ -26,7 +26,7 @@ describe('V2 Test', () => {
             it('create new record', async () => {
                 const register = await mockRequest.post('/signup').send(users[userType]);
                 const token = register.body.token;
-                const response = await mockRequest.post('/api/v1/food').send({
+                const response = await mockRequest.post('/api/v2/food').send({
                     name: "hassan",
                     calories: "221",
                     type: "fruit"
@@ -40,24 +40,24 @@ describe('V2 Test', () => {
             it('get all records', async () => {
                 const register = await mockRequest.post('/signin').auth(users[userType].username, users[userType].password);
                 const token = register.body.token;
-                await mockRequest.put('/api/v1/food').send({
+                await mockRequest.put('/api/v2/food').send({
                     name: "hassan",
                     calories: "221",
                     type: "fruit"
                 }).set('Authorization', `Bearer admin`);
-                const response = await mockRequest.get('/api/v1/food').set('Authorization', `Bearer ${token}`);
+                const response = await mockRequest.get('/api/v2/food').set('Authorization', `Bearer ${token}`);
                 expect(response.status).toBe(200);
             });
             it('get one record', async () => {
                 const register = await mockRequest.post('/signin').auth(users[userType].username, users[userType].password);
                 const token = register.body.token;
-                const response = await mockRequest.get('/api/v1/food/1').set('Authorization', `Bearer ${token}`);
+                const response = await mockRequest.get('/api/v2/food/1').set('Authorization', `Bearer ${token}`);
                 expect(response.status).toBe(200);
             });
             it('update record', async () => {
                 const register = await mockRequest.post('/signin').auth(users[userType].username, users[userType].password);
                 const token = register.body.token;
-                const response = await mockRequest.put('/api/v1/food/1').send({
+                const response = await mockRequest.put('/api/v2/food/1').send({
                     "name": "hassan",
                     "calories": "300",
                     "type": "fruit"
@@ -71,7 +71,7 @@ describe('V2 Test', () => {
             if ('delete record', async () => {
                 const register = await mockRequest.post('/signin').auth(users[userType].username, users[userType].password);
                 const token = register.body.token;
-                const response = await mockRequest.delete('/api/v1/food/1').set('Authorization', `Bearer ${token}`);
+                const response = await mockRequest.delete('/api/v2/food/1').set('Authorization', `Bearer ${token}`);
                 if (users[userType].role === 'admin') {
                     expect(response.status).toBe(204);
                 } else {
