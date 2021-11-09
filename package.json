@@ -8,7 +8,6 @@
     "init:config": "sequelize init:config",
     "db:create": "sequelize db:create",
     "watch": "nodemon index.js",
-    "test-watch": "NODE_ENV=test jest --watchAll",
     "test": "NODE_ENV=test jest",
     "dev": "NODE_ENV=development nodemon index.js"
   },
@@ -30,6 +29,6 @@
     "sequelize": "^6.6.2",
     "sequelize-cli": "^6.2.0",
     "sqlite3": "^5.0.2",
-    "supertest": "^6.0.1"
+    "supertest": "^6.1.6"
   }
 }
