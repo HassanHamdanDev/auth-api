@@ -1,0 +1,23 @@
+{
+    "development": {
+        "username": "hassan",
+        "password": "root",
+        "database": "people",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "hassan",
+        "password": "root",
+        "database": "people",
+        "host": "127.0.0.1",
+        "dialect": "sqlite:memory:"
+    },
+    "production": {
+        "username": "hassan",
+        "password": "root",
+        "database": "people",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    }
+}
