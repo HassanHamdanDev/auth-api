@@ -42,13 +42,13 @@ async function handleUpdate(req, res) {
   const id = req.params.id;
   const obj = req.body;
   let updatedRecord = await req.model.update(id, obj)
-  res.status(200).json(updatedRecord);
+  res.status(201).json(updatedRecord);
 }
 
 async function handleDelete(req, res) {
   let id = req.params.id;
   let deletedRecord = await req.model.delete(id);
-  res.status(200).json(deletedRecord);
+  res.status(204).json(deletedRecord);
 }
 
 
