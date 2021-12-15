@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 // App Level MW
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {

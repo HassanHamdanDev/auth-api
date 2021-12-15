@@ -15,10 +15,7 @@ module.exports = async (req, res, next) => {
     next();
 
   } catch (e) {
-    _authError();
-  }
-
-  function _authError() {
     next('Invalid Login');
   }
+
 }
