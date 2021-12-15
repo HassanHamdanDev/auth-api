@@ -26,6 +26,8 @@ authRouter.post('/signin', basicAuth, (req, res, next) => {
     user: req.user,
     token: req.user.token
   };
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.status(200).json(user);
 });
 
